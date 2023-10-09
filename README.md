@@ -1,2 +1,2 @@
-# projeto-ada-ifood
-Exercícios e projetos ref. curso front-end Ada Tech
+# Programa Vem Ser Tech - Ada Tech & iFood
+Exercícios e projetos ref. curso de front end
