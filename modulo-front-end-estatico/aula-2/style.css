@@ -1,0 +1,14 @@
+* {
+    font-family: sans-serif;
+}
+
+table, th, td{
+    padding: 5px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.tabela {
+padding: 5px;
+}
