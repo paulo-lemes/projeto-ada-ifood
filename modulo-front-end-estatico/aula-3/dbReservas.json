@@ -1,0 +1,36 @@
+{
+  "reserva": [
+    {
+      "nome": "",
+      "dataPartida": "",
+      "numPassageiros": "",
+      "email": "",
+      "telefone": "",
+      "nomeCartao": "",
+      "numCartao": "",
+      "vencCartao": "",
+      "cvv": "",
+      "passaporte": "",
+      "id": 1
+    },
+    {
+      "nome": "Paulo Lemes",
+      "dataPartida": "2023-10-16",
+      "numPassageiros": "3",
+      "listaPaises": "brasil",
+      "email": "paulo@email.com",
+      "refeicao": "padrão",
+      "telefone": "1212345-6789",
+      "destinos": "novaYork",
+      "preferenciaAssento": "janela",
+      "nomeCartao": "PAULO",
+      "numCartao": "000",
+      "vencCartao": "12/2023",
+      "cvv": "333",
+      "passaporte": "",
+      "servQuarto": "on",
+      "passeios": "on",
+      "id": 2
+    }
+  ]
+}

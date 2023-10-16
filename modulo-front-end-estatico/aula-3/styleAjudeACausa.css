@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap');
+
+* {
+    font-family: Oswald, sans-serif;
+}
+
+h2, h3 {
+    font-weight: 300;
+}
+
+h3 {
+    margin-top: -15px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    background-image: url(/images/marathon.png);
+    background-size:cover;
+}
+
+.prefServicos {
+    display: flex;
+}
+
+.sQuarto {
+    margin-top: 10px;
+}
+
+input,
+select,
+label,
+button {
+    display: flex;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+label {
+    font-size: 20px;
+}
+
+
+input,
+select, option {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    color: black;
+    padding: 1px;
+    text-align: center;
+    border: none;
+    background-color: rgb(187, 187, 187);
+    border-radius: 2px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+#idade {
+    width: 50px;
+}
+
+#valorDoacao {
+    width: 80px;
+    margin-right: -10px;
+}
+
+p {
+    margin-left: 10px;
+    margin-right: -5px;
+    font-size: 15px;
+}
+
+form {
+    border: none;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    padding: 0px 40px 20px 40px;
+    background-color: rgb(255, 255, 255);
+    font-weight: 300;
+    text-align: center;
+}
+
+.campo {
+display: flex;
+flex-wrap: wrap;
+align-items: baseline;
+padding-left: 5px;
+padding-right: 5px;
+}
+
+button {
+    background-color: black;
+    font-size: 17px;
+    border-radius: 50px;
+    margin-top: 5px;
+    padding: 0px 25px;
+    color: white;
+    border: solid 2px black;
+}
+
+.botao {
+    display: flex;
+    justify-content: center;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.direitos-autorais {
+    margin-top: 40px;
+}

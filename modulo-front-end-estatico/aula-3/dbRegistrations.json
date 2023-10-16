@@ -1,0 +1,22 @@
+{
+  "registrations": [
+    {
+      "nome": "Paulo Lemes",
+      "idade": "25",
+      "email": "paulo@email.com",
+      "tamCamiseta": "g",
+      "categoriaInsc": "4walk",
+      "valorDoacao": "100",
+      "id": 1
+    },
+    {
+      "nome": "Teste",
+      "idade": "99",
+      "email": "teste@email.com",
+      "tamCamiseta": "m",
+      "categoriaInsc": "5run",
+      "valorDoacao": "50",
+      "id": 2
+    }
+  ]
+}
