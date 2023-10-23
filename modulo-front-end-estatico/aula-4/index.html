@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ON STORE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/assets/onstore.favicon_io/favicon-32x32.png" type="image/x-icon" />
+</head>
+
+<body>
+    <header id="home">
+        <a href="index.html"><img src="/assets/onstore.png" alt="Logotipo On Store"></a>
+        <nav>
+            <ul>
+                <li><a href="#expo">Home</a></li>
+                <li><a href="#gallery">Galeria</a></li>
+                <li><a href="#table">Preços</a></li>
+                <li><a href="#subscriptions">Newsletter</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="expo">
+        <img src="/assets/expo.jpg" alt="Exposição de arte">
+    </section>
+    <main id="gallery">
+        <section class="artContainer">
+            <h1>Galeria</h1>
+            <article>
+                <figure>
+                    <img src="/assets/o-grito-edvard-munch.webp" alt="Quadro O Grito, Edvard Munch">
+                    <figcaption>O Grito, Edvard Munch</figcaption>
+                    <p>Categoria A</p>
+                </figure>
+            </article>
+            <article>
+                <figure>
+                    <img src="/assets/abaporu-tarsila-do-amaral.jpg" alt="Quadro Abaporu, Tarsila do Amaral">
+                    <figcaption>Abaporu, Tarsila do Amaral</figcaption>
+                    <p>Categoria B</p>
+                </figure>
+            </article>
+            <article>
+                <figure>
+                    <img src="/assets/a-criacao-de-adao-michelangelo.webp" alt="Quadro A Criação de Adão, Michelangelo">
+                    <figcaption>A Criação de Adão, Michelangelo</figcaption>
+                    <p>Categoria A</p>
+                </figure>
+            </article>
+            <article>
+                <figure>
+                    <img src="/assets/a-noite-estrelada-van-gogh.webp" alt="Quadro A Noite Estrelada, Vincent van Gogh">
+                    <figcaption>A Noite Estrelada, van Gogh</figcaption>
+                    <p>Categoria A</p>
+                </figure>
+            </article>
+            <article>
+                <figure>
+                    <img src="/assets/as-meninas-velazquez.webp" alt="Quadro As Meninas, Velázquez">
+                    <figcaption>As Meninas, Velázquez</figcaption>
+                    <p>Categoria B</p>
+                </figure>
+            </article>
+            <article>
+                <figure>
+                    <img src="/assets/monalisa-leonardo-da-vinci.avif" alt="Quadro Monalisa, Leonardo Da Vinci">
+                    <figcaption>Mona Lisa, Leonardo Da Vinci</figcaption>
+                    <p>Categoria B</p>
+                </figure>
+            </article>
+        </section>
+        <aside>
+            <h2>O que é arte?</h2>
+            <p>A arte sensibiliza… Não se vê com os olhos, não se ouve com os ouvidos, nem é sentida por qualquer outro
+                sentido corpóreo. A arte é uma das forças universais. Imaterial, invisível, eterna. É a força que
+                desperta o homem para o mundo espiritual, pois é tão somente com nosso espírito que vemos a arte.</p>
+            <p id="reference">"Do Universo ao Universal" (1998)</p>
+        </aside>
+    </main>
+    <section id="table">
+        <table id="priceTable">
+            <h2>Tabela de preços</h2>
+            <thead>
+                <tr>
+                    <th>Quadro</th>
+                    <th>Tamanho (cm)</th>
+                    <th>Preço</th>
+                    <th>Prazo entrega</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th rowspan="3" class="columnTable">Categoria A</td>
+                    <td>350x120</td>
+                    <td>R$1.000,00</td>
+                    <td>15 dias úteis</td>
+                </tr>
+                <tr>
+                    <td>120x90</td>
+                    <td>R$750,00</td>
+                    <td>10 dias úteis</td>
+                </tr>
+                <tr>
+                    <td>90x60</td>
+                    <td>R$600,00</td>
+                    <td>7 dias úteis</td>
+                </tr>
+                <tr>
+                    <th rowspan="3" class="columnTable">Categoria B</td>
+                    <td>350x120</td>
+                    <td>R$1.300,00</td>
+                    <td>17 dias úteis</td>
+                </tr>
+                <tr>
+                    <td>120x90</td>
+                    <td>R$950,00</td>
+                    <td>12 dias úteis</td>
+                </tr>
+                <tr>
+                    <td>90x60</td>
+                    <td>R$750,00</td>
+                    <td>9 dias úteis</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section id="subscriptions">
+        <!-- Atenção: habilitar json-server para enviar informações do formulário -->
+        <form action="http://localhost:3000/newsletter" method="post">
+            <h2 class="sectionTitle">Assine nossa Newsletter!</h2>
+            <p>Seja o primeiro a receber ofertas exclusivas e últimas atualizações sobre exposições!</p>
+
+            <input type="text" id="nome" name="nome" placeholder="Nome" required>
+
+            <input type="email" id="email" name="email" placeholder="E-mail" required>
+
+            <button type="submit">Assinar</button>
+            <p>Ao assinar, você aceita nossa <a href="/politicaPrivacidade.html"><span>Política de Privacidade</span></a> e nossos <a href="/termosUso.html"><span>Termos de Uso</span></a>.
+            </p>
+        </form>
+    </section>
+    <footer>
+        <section id="contact">
+            <a href="https://www.facebook.com" target="_blank"><img src="assets/facebook.png"
+                    alt="facebook" /></a>
+            <a href="https://www.instagram.com" target="_blank"><img src="assets/instagram.png"
+                    alt="instagram" /></a>
+            <a href="https://twitter.com" target="_blank"><img src="assets/twitter.png" alt="twitter" /></a>
+        </section>
+        <p>&copy; 2023 ON STORE</p>
+        <a href="#expo" id="topo"><img src="assets/topo.png" alt="Topo do site"></a>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+{
+  "newsletter": [
+    {
+      "nome": "Paulo",
+      "email": "paulo@email.com",
+      "id": 1
+    },
+    {
+      "nome": "Fulano",
+      "email": "fulano@email.com",
+      "id": 2
+    },
+    {
+      "nome": "Ciclana",
+      "email": "Ciclana@email.com",
+      "id": 3
+    }
+  ]
+}

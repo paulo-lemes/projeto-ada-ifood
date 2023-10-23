@@ -4,59 +4,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservas TravelMundo</title>
+    <title>ONG Ajude A Causa</title>
     <link rel="stylesheet" href="styleAjudeACausa.css">
 </head>
 
 <body>
     <h1>ONG Ajude A Causa</h1>
-    <!-- Atenção: habilitar json-server para enviar informações do formulário -->
-    <form action="http://localhost:3000/registrations" method="post">
-        <h2>Formulário de inscrição</h2>
-        <h3>Evento - Corrida anual</h3>
+    <main>
+        <!-- Atenção: habilitar json-server para enviar informações do formulário -->
+        <form action="http://localhost:3000/registrations" method="post">
+            <h2>Formulário de inscrição</h2>
+            <h3>Evento - Corrida anual</h3>
             <div class="campo">
-            <label for="nome">Nome do participante:</label>
-            <input type="text" name="nome" id="nome">
+                <label for="nome">Nome do participante:</label>
+                <input type="text" name="nome" id="nome" required>
             </div>
             <div class="campo">
-            <label for="idade">Idade:</label>
-            <input type="number" name="idade" id="idade">
-        </div>
+                <label for="idade">Idade:</label>
+                <input type="number" name="idade" id="idade" min="0" max="100" required>
+            </div>
             <div class="campo">
-            <label for="email">E-mail:</label>
-            <input type="email" name="email" id="email">
-        </div>
+                <label for="email">E-mail:</label>
+                <input type="email" name="email" id="email" required>
+            </div>
             <div class="campo">
-            <label for="tamCamiseta">Tamanho da camiseta:</label>
-            <select name="tamCamiseta" id="tamCamiseta">
-                <option value="escolha" selected disabled>Escolha uma opção</option>
-                <option value="p">P</option>
-                <option value="m">M</option>
-                <option value="g">G</option>
-                <option value="gg">GG</option>
-                <option value="xg">XG</option>
-            </select>
-        </div>
+                <label for="tamCamiseta">Tamanho da camiseta:</label>
+                <select name="tamCamiseta" id="tamCamiseta" required>
+                    <option value="escolha" selected disabled>Escolha uma opção</option>
+                    <option value="p">P</option>
+                    <option value="m">M</option>
+                    <option value="g">G</option>
+                    <option value="gg">GG</option>
+                    <option value="xg">XG</option>
+                </select>
+            </div>
             <div class="campo">
-            <label for="categoriaInsc">Categoria de inscrição:</label>
-            <select name="categoriaInsc" id="categoriaInsc">
-                <option value="escolha" selected disabled>Escolha uma opção</option>
-                <option value="3run">Corrida 3km (3RUN)</option>
-                <option value="5run">Corrida 5km (5RUN)</option>
-                <option value="4walk">Caminhada 4km (4WALK)</option>
-            </select>
-        </div>
+                <label for="categoriaInsc">Categoria de inscrição:</label>
+                <select name="categoriaInsc" id="categoriaInsc" required>
+                    <option value="escolha" selected disabled>Escolha uma opção</option>
+                    <option value="3run">Corrida 3km (3RUN)</option>
+                    <option value="5run">Corrida 5km (5RUN)</option>
+                    <option value="4walk">Caminhada 4km (4WALK)</option>
+                </select>
+            </div>
             <div class="campo">
-            <label for="valorDoacao">Valor da doação:</label>
-            <p>R$</p>
-            <input type="number" name="valorDoacao" id="valorDoacao">
-            <p>,00</p>
-        </div>
+                <label for="valorDoacao">Valor da doação:</label>
+                <p>R$</p>
+                <input type="number" name="valorDoacao" id="valorDoacao" step="0.01" placeholder="0,00">
+            </div>
             <div class="botao">
                 <button type="submit">Enviar</button>
+                <button type="reset">Limpar</button>
             </div>
-        </div>
-    </form>
+            </div>
+        </form>
+    </main>
     <footer>
         <p class="direitos-autorais">&copy; 2023 ONG Ajude A Causa - Todos os direitos reservados.</p>
     </footer>
