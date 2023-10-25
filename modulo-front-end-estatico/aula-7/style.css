@@ -1,0 +1,38 @@
+a,
+a:hover,
+a:visited, a::before, a::after {
+    text-decoration: none;
+    color: inherit;
+}
+
+#img {
+    animation: moveY 2s infinite !important;
+}
+
+@keyframes moveY {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(30px);
+    }
+}
+
+.card:hover,
+.img-thumbnail:hover {
+    transform: scale(1.01);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+#login {
+    background: url(https://t2.tudocdn.net/652936?w=1920);
+}
+
+#top {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
