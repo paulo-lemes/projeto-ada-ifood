@@ -323,6 +323,7 @@ ____________________________________
                 case 0:
                     console.log(`> Jogo finalizado.`);
                     Player.mostrarPontuacoes()
+                    this.mostrarMenuInicial()
                     break;
                 default:
                     console.log(`> Opção incorreta! Selecione outra.`);
