@@ -8,27 +8,32 @@
 const prompt = require('prompt-sync')();
 
 class Match {
-    static #conjuntoPalavras = ["vermelho", "amarelo", "azul", "verde"]
-    static #conjuntoDicas = ["cor", "cor", "cor", "cor"]
+    static #conjuntoPalavras = ["vermelho", "amarelo", "azul", "verde", "mamão", "maçã", "melância", "super-homem", "pão de queijo", "vôlei de praia", "futebol americano"]
+    static #conjuntoDicas = ["cor", "cor", "cor", "cor", "fruta", "fruta", "fruta", "herói fictício", "comida", "esporte", "esporte"]
 
     static inserirPalavraEDica(palavra, dica) {
-        if (this.#conjuntoPalavras.includes(palavra.toLowerCase())) {
-            console.log(`A palavra já existe.`);
-            return
-        }
-        if (typeof palavra === "string" && typeof dica === "string") {
-            this.#conjuntoPalavras.push(palavra.toLowerCase())
-            this.#conjuntoDicas.push(dica.toLowerCase())
-            console.log(`
+        try {
+            if (this.verificarNumeroNaPalavra(palavra)) {
+                throw new Error(`> A palavra não pode possui um número.`);
+            }
+
+            if (this.#conjuntoPalavras.includes(palavra.toLowerCase())) {
+                throw new Error(`> A palavra já existe.`);
+            }
+            if (typeof palavra === "string" && typeof dica === "string") {
+                this.#conjuntoPalavras.push(palavra.toLowerCase())
+                this.#conjuntoDicas.push(dica.toLowerCase())
+                console.log(`
 Palavra e dica cadastradas com sucesso!
 
 Palavras: ${this.#conjuntoPalavras}
 Dicas: ${this.#conjuntoDicas}
 `);
-            return
-        }
-        console.log(`Não foi possível cadastrar a palavra e/ou dica.`);
-        return
+                return
+            }
+            throw new Error(`Não foi possível cadastrar a palavra e/ou dica.`);
+        } catch (e) { console.log(e.message); }
+
     }
 
     static sortearPalavra() {
@@ -42,24 +47,53 @@ Dicas: ${this.#conjuntoDicas}
 
     #palavraSorteada
     #letrasPalavra
-    visualizacaoPalavra
     #palavra
 
     constructor() {
-        this.iniciarPalavra()
+        this.iniciarJogo()
     }
 
-    iniciarPalavra() {
+    iniciarJogo() {
         this.#palavraSorteada = Match.sortearPalavra()
         this.#letrasPalavra = this.#palavraSorteada.split("")
-        this.visualizacaoPalavra = this.#letrasPalavra.map((letra) => letra = "_")
-        this.#palavra = this.#palavraSorteada
+        this.iniciarPalavra(this.#letrasPalavra)
+        this.#palavra = Match.removerAcentos(this.#palavraSorteada)
         this.dica = Match.obterDica(this.#palavraSorteada)
-        this.qtdLetras = this.#palavraSorteada.length
-        this.qtdLetrasRestantes = this.qtdLetras
         this.maxTentativas = 6
         this.bonecoForca = ""
         this.pontos = 0
+        this.letrasTentadas = []
+        this.palavrasTentadas = []
+    }
+
+    iniciarPalavra(palavra) {
+        this.visualizacaoPalavra = palavra.map((letra) => {
+            if (letra === " " || letra === "-") {
+                return letra
+            } else {
+                return letra = "_"
+            }
+        })
+        
+        this.qtdLetras = palavra.length
+
+        for (let i = 0; i < palavra.length; i++) {
+            if (palavra[i] === " ") {
+                this.qtdLetras--;
+            }
+            else if (palavra[i] === "-") {
+                this.qtdLetras--;
+            } else {
+
+            }
+        }
+        this.qtdLetrasRestantes = this.qtdLetras
+    }
+
+    static removerAcentos(palavra) {
+        const palavraSemAcento = palavra.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-zA-Z0-9çÇ\s-]/g, "");
+
+  return palavraSemAcento;
     }
 
     atualizarPontosEBonecoForca() {
@@ -112,13 +146,14 @@ Dicas: ${this.#conjuntoDicas}
     verificarPalavra() {
         try {
             this.verificarTentativas()
-            let palavra = prompt("- Digite a palavra: ");
+            console.log(`Obs: desconsidere a acentuação`);
+            let palavra = prompt(`- Digite a palavra: `);
 
             if (!palavra) {
                 throw new Error(`> Não é possível verificar um caractere vazio.`);
             }
 
-            if (!isNaN(parseInt(palavra))) {
+            if (Match.verificarNumeroNaPalavra(palavra)) {
                 throw new Error(`> A palavra não possui um número.`);
             }
 
@@ -128,17 +163,32 @@ Dicas: ${this.#conjuntoDicas}
                 throw new Error(`> A palavra deve ter no mínimo 3 letras.`);
             }
 
+            if (this.palavrasTentadas.includes(palavra)) {
+                console.log(`
+    Tentativas: ${this.palavrasTentadas.join(" - ")}
+    `
+                );
+                throw new Error(`> Palavra já verificada!`);
+            }
+
             if (palavra.toLowerCase() === this.#palavra) {
                 this.#letrasPalavra = []
                 this.qtdLetrasRestantes = 0
                 console.log(`Acertou!`);
                 return
             }
+            this.palavrasTentadas.push(palavra)
             this.maxTentativas--
             this.atualizarPontosEBonecoForca()
             console.log(`Palavra incorreta.`)
         }
         catch (e) { console.log(e.message); }
+    }
+
+    static verificarNumeroNaPalavra(palavra) {
+        let regex = /\d/;
+
+        return regex.test(palavra);
     }
 
 
@@ -159,13 +209,22 @@ Dicas: ${this.#conjuntoDicas}
                 throw new Error(`> Só é possível verificar uma letra por vez.`);
             }
 
-            if (this.#letrasPalavra.includes(letra)) {
-                this.atualizarLetras(this.#letrasPalavra, letra, this.visualizacaoPalavra)
+            if (this.letrasTentadas.includes(letra)) {
+                console.log(`
+    Tentativas: ${this.letrasTentadas.join(" - ")}
+    `
+                );
+                throw new Error(`> Letra já verificada!`);
+            }
+
+            if (this.validarLetraEAtualizar(letra)) {
+                this.letrasTentadas.push(letra)
                 console.log(`
 Letra correta!
 `)
                 return
             }
+            this.letrasTentadas.push(letra)
             this.maxTentativas--
             this.atualizarPontosEBonecoForca()
             console.log(`
@@ -176,24 +235,29 @@ Letra incorreta.
         }
     }
 
-    atualizarLetras(arrayPalavra, letra, arrayVisualizacao) {
-        let posicoes = [];
-        let indice = arrayPalavra.indexOf(letra);
+    validarLetraEAtualizar(letra) {
+        const letraLowerCase = letra.toLowerCase();
+        const indicesEncontrados = [];
 
-        while (indice !== -1) {
-            posicoes.push(indice);
-            arrayVisualizacao[indice] = letra;
-            indice = arrayPalavra.indexOf(letra, indice + 1);
-            this.qtdLetrasRestantes--
+        this.#letrasPalavra.forEach((letra, index) => {
+            if (letra.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '') === letraLowerCase) {
+                indicesEncontrados.push(index);
+                this.qtdLetrasRestantes--
+            }
+        });
+
+        if (indicesEncontrados.length > 0) {
+            indicesEncontrados.forEach((x) => this.visualizacaoPalavra[x] = this.#letrasPalavra[x])
+            return true
         }
 
-        return arrayVisualizacao;
+        return false;
     }
 
     verificarTentativas() {
         if (this.maxTentativas < 1) {
             console.log(this.bonecoForca);
-            console.log(`O máximo de tentativas foi alcançado.`)
+            console.log(`O máximo de tentativas foi alcançado. A palavra era "${this.#palavraSorteada.toUpperCase()}".`)
             return true
         }
     }
@@ -203,7 +267,7 @@ Letra incorreta.
             return true
         }
 
-        return this.qtdLetrasRestantes < 1 ? console.log(`Palavra completa!`) : false
+        return this.qtdLetrasRestantes < 1 ? console.log(`Você ganhou! A palavra "${this.#palavraSorteada.toUpperCase()}" está completa!`) : false
     }
 }
 
@@ -251,7 +315,7 @@ ____________________________________
                 case 1:
                     let validacao = Player.verificarNome()
                     if (validacao) {
-                        this.player.iniciarPalavra()
+                        this.player.iniciarJogo()
                         this.iniciarJogo()
                     }
                     break;
@@ -317,7 +381,7 @@ ____________________________________
                     console.log(`
      Jogo reiniciado com outra palavra sorteada.
             `);
-                    this.player.iniciarPalavra()
+                    this.player.iniciarJogo()
                     this.iniciarJogo()
                     break;
                 case 0:
@@ -419,6 +483,7 @@ Match.inserirPalavraEDica("camiseta", "roupa")
 Match.inserirPalavraEDica("blusa", "roupa")
 Match.inserirPalavraEDica("regata", "roupa")
 Match.inserirPalavraEDica("camiseta", "roupa")
+Match.inserirPalavraEDica("camiseta2", "roupa")
 
 console.clear()
 
