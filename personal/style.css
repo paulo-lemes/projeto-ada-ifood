@@ -1,0 +1,336 @@
+h1 {
+    font-size: 5vw;
+    letter-spacing: -0.45vw;
+    text-shadow: 0.13vw 0.13vw grey;
+ }
+
+ #title {
+    font-size: 6vw;
+    /*transition: font-size 0.6s ease-out 1s;*/
+    display: block;
+    margin: auto;
+ }
+
+ /*#title:hover {
+    font-size: 7vw;
+ }*/
+
+ span {
+    background-color: black;
+ }
+
+ video {
+    max-width: 100%;
+    height: auto;
+    padding: 20px;
+ }
+
+ #p1,
+ h2 {
+    font-size: 1.75vw;
+    letter-spacing: -1px;
+    line-height: 0.9;
+ }
+
+ body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+ }
+
+ h1,
+ #p1,
+ form,
+ #p4 {
+    text-align: center;
+ }
+
+ #p4 {
+    font-size: 1.25vw;
+ }
+
+ form {
+    padding: 20px;
+    font-size: 1.25vw;
+ }
+
+ #login {
+    max-width: 100%;
+    height: auto;
+    z-index: 0;
+ }
+
+ #image {
+    text-align: center;
+    z-index: 0;
+ }
+
+ img {
+    max-width: 100%;
+    height: auto;
+    cursor: pointer;
+    box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.5), 0 12px 20px 0 rgba(0, 0, 0, 0.4);
+ }
+
+ video {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    height: auto;
+ }
+
+ audio {
+    float: right;
+ }
+
+ audio::-webkit-media-controls-panel {
+    background-color: #282828;
+ }
+
+ audio::-webkit-media-controls-mute-button {
+    background-color: #282828;
+ }
+
+ audio::-webkit-media-controls-play-button {
+    background-color: #282828;
+ }
+
+ audio::-webkit-media-controls-current-time-display {
+    background-color: #282828;
+    text-shadow: none;
+ }
+
+ audio::-webkit-media-controls-time-remaining-display {
+    background-color: #282828;
+    text-shadow: none;
+ }
+
+ audio::-webkit-media-controls-timeline {
+    background-color: #282828;
+ }
+
+ audio::-webkit-media-controls-volume-slider-container {
+    background-color: #282828;
+ }
+
+ audio::-webkit-media-controls-volume-slider {
+    background-color: #282828;
+    text-shadow: none;
+ }
+
+ audio::-webkit-media-controls-seek-back-button {
+    background-color: #282828;
+ }
+
+ audio::-webkit-media-controls-seek-forward-button {
+    background-color: #282828;
+ }
+
+ audio::-webkit-media-controls-fullscreen-button {
+    background-color: #282828;
+ }
+
+ audio::-webkit-media-controls-rewind-button {
+    background-color: #282828;
+ }
+
+ audio::-webkit-media-controls-return-to-realtime-button {
+    background-color: #282828;
+ }
+
+ audio::-webkit-media-controls-toggle-closed-captions-button {
+    background-color: #282828;
+ }
+
+ @media only screen and (max-width: 768px) {
+    audio {
+       display: none;
+    }
+
+    #p1 {
+       line-height: normal;
+    }
+ }
+
+ ::selection {
+    color: black;
+    background-color: rgb(233, 207, 11);
+ }
+
+ ul {
+    overflow: hidden;
+    list-style-type: none;
+    margin: auto;
+    margin-bottom: 1.62vw;
+    position: relative;
+    display: flex;
+    justify-content: center;
+ }
+
+ li a,
+ .dropbtn {
+    display: inline-block;
+    background-color: black;
+    text-align: center;
+    padding: 0.32vw 0.64vw;
+    text-decoration: none;
+    color: burlywood;
+    font-size: 1.75vw;
+    font-weight: bold;
+    letter-spacing: -0.13vw;
+    text-shadow: 0.032vw 0.065vw rgb(95, 71, 39);
+    border-left: 0.13vw solid white;
+    transition-duration: 0.5s;
+ }
+
+ li a:hover,
+ .dropdown:hover .dropbtn {
+    background-color: grey;
+    color: black;
+ }
+
+ li.dropdown {
+    display: inline-block;
+ }
+
+ .dropdown-content {
+    display: none;
+    float: none;
+    background-color: #f9f9f9;
+    min-width: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+ }
+
+ .dropdown-content a {
+    color: rgb(255, 255, 255);
+    padding: 4px 6px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+ }
+
+ .dropdown-content a:hover {
+    background-color: #444444;
+ }
+
+ .dropdown:hover .dropdown-content {
+    display: block;
+    padding: 0;
+ }
+
+ .active {
+    background-color: rgb(30, 31, 30);
+ }
+
+ div {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    padding: 3.25vw 0 0 0;
+    z-index: 1;
+ }
+
+ input[type="text"] {
+    color: white;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1.04vw;
+ }
+
+ #username {
+    width: 10vw;
+    height: 1vw;
+ }
+
+ #username:hover {
+    box-shadow: 0 0.78vw 1.3vw 0 rgba(255, 255, 255, 0.24), 0 1.1vw 3.9vw 0 rgba(255, 255, 255, 0.19);
+ }
+
+ #pwd:hover {
+    box-shadow: 0 0.78vw 1.3vw 0 rgba(255, 255, 255, 0.24), 0 1.1vw 3.9vw 0 rgba(255, 255, 255, 0.19);
+ }
+
+ input[type="password"] {
+    color: white;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 10vw;
+    height: 1vw;
+    font-size: 1.04vw;
+ }
+
+ .searchButton {
+    width: 8.46vw;
+    box-sizing: border-box;
+    border: 0.13vw solid #000000;
+    border-radius: 1.3vw;
+    font-size: 1.04vw;
+    background-color: rgb(37, 37, 37);
+    background-image: url('images/searchicon.png');
+    background-size: 1.62vw;
+    background-position: 0.65vw 0.65vw;
+    background-repeat: no-repeat;
+    padding: 0.78vw 1.3vw 0.78vw 2.6vw;
+    transition: width 0.4s ease-in-out;
+    position: relative;
+ }
+
+ .searchButton:focus {
+    width: 40%;
+ }
+
+ .searchButton::content {
+    background-color: rgb(37, 37, 37);
+ }
+
+ #bckimgs {
+    background: url(images/ergerg.png) center no-repeat, url(images/001.jpg) left top repeat;
+ }
+
+ ::-webkit-scrollbar {
+    background-color: #000000;
+ }
+
+ ::-webkit-scrollbar-button {
+    background-color: rgb(54, 54, 54);
+ }
+
+ ::-webkit-scrollbar-corner {
+    background-color: rgb(216, 216, 216);
+ }
+
+ ::-webkit-scrollbar-thumb {
+    background-color: rgb(40, 40, 40);
+    border: 1px solid;
+    border-color: rgb(95, 71, 39);
+ }
+
+ ::-webkit-scrollbar-track {
+    background-color: rgb(64, 64, 64);
+ }
+
+ ::-webkit-scrollbar-track-piece {
+    background-color: rgb(0, 0, 0);
+ }
+
+ #scrt {
+    font-size: 2vw;
+    position: relative;
+    animation: secret 4s 3;
+ }
+
+ @keyframes secret {
+    0% {
+       left: 0px;
+       top: 0px;
+    }
+
+    50% {
+       left: 8.4vw;
+       top: 11.25vw;
+    }
+
+    100% {
+       left: 0px;
+       top: 0px;
+    }
+ }

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./favicon/favicon.ico" />
+    <link rel="stylesheet" href="./styles.css" />
+
+    <title>Jogo da memória</title>
+  </head>
+
+  <body>
+    <div class="grid grid-cols-8 md:grid-cols-8 lg:grid-cols-6 mt-7">
+      <div
+        class="flex flex-col w-full col-start-2 col-span-6 md:col-start-3 md:col-span-4 lg:col-start-3 lg:col-span-2"
+      >
+        <div
+          class="text-center mb-1 text-black font-semibold py-2 px-4 border border-gray-300 rounded shadow"
+        >
+          <h1 class="font-semibold">Jogo da memória</h1>
+        </div>
+        <div class="flex justify-center cursor-pointer">
+          <img
+            class="mx-auto"
+            width="150"
+            src="./src/assets/default-image.jpg"
+            alt="carro-azul"
+            id="carro-azul1"
+            class="carro-azul"
+          />
+
+          <img
+            class="mx-auto"
+            width="150"
+            src="./src/assets/default-image.jpg"
+            alt="carro-vermelho"
+            id="carro-vermelho1"
+            class="carro-vermelho"
+          />
+        </div>
+        <div class="flex justify-center cursor-pointer">
+          <img
+            class="mx-auto"
+            width="150"
+            src="./src/assets/default-image.jpg"
+            alt="carro-vermelho"
+            id="carro-vermelho2"
+            class="carro-vermelho"
+          />
+          <img
+            class="mx-auto"
+            width="150"
+            src="./src/assets/default-image.jpg"
+            alt="carro-azul"
+            id="carro-azul2"
+            class="carro-azul"
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="script.js"></script>
+</html>
